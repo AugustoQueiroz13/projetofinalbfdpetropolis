@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios Tecnológicos para a Educação - Bolsa Futuro Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Paleta Escolhida: Neutros Quentes -->
+    <!-- Plano de Estrutura da Aplicação: A estrutura de painel de página única foi mantida por isolar cada desafio de forma eficaz, ideal para o cenário onde cada equipe recebe um problema específico. As principais alterações estão no tom e no enquadramento do conteúdo. A estrutura começa com uma introdução personalizada do professor, estabelecendo o contexto acadêmico e profissional. A navegação por abas permite que os alunos encontrem facilmente seu desafio. A área de conteúdo dinâmico apresenta apenas o contexto do problema, incentivando os alunos a idealizarem do zero. O fluxo do usuário (contexto -> encontrar desafio -> entender problema) é claro, direto e atende ao objetivo pedagógico de fomentar a resolução de problemas de forma independente. -->
+    <!-- Escolhas de Visualização e Conteúdo: 
+        - Informação do Relatório: 5 desafios educacionais (problema e meta ODS 4) para os alunos. Objetivo: Apresentar cada cenário de problema claramente. Método: Abas interativas. Interação: Clicar em uma aba revela o contexto para aquele desafio específico. Justificativa: Foca cada equipe em seu problema designado sem a distração de dicas de solução, alinhando-se aos novos requisitos.
+        - Informação do Relatório: Introdução do professor e detalhes do programa. Objetivo: Enquadrar o projeto acadêmica e profissionalmente. Método: Texto estático e bem formatado. Interação: Nenhuma. Justificativa: Estabelece autoridade e fornece contexto essencial para o trabalho dos alunos.
+    -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #4A4A4A;
+        }
+
+        .aba-desafio {
+            transition: all 0.3s ease;
+        }
+
+        .aba-desafio.active {
+            background-color: #0077B6;
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+
+        .cartao-conteudo {
+            display: none;
+        }
+
+        .cartao-conteudo.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="mb-10">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 p-6 rounded-2xl shadow-lg"
+                style="background-color: #C5192D;">
+                <div class="bg-white rounded-xl p-1 shadow">
+                    <img src="https://extensao.ifg.edu.br/futurodigital/wp-content/uploads/sites/33/2025/05/Logo_Bolsa_Futuro_Digital-1024x1024.png"
+                        alt="Logo Bolsa Futuro Digital" class="w-20 h-20 md:w-24 md:h-24 object-contain"
+                        onerror="this.onerror=null;this.src='https://placehold.co/96x96/ffffff/C5192D?text=BFD'">
+                </div>
+
+                <div class="flex-grow">
+                    <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1 text-center">Desafios
+                        Tecnológicos para a Sociedade</h1>
+                    <p class="text-md md:text-lg text-white opacity-90 text-center">Projetos de Conclusão com o ODS 4:
+                        Educação de Qualidade</p>
+                </div>
+
+                <img src="https://ps.ensinabrasil.org.br/wp-content/uploads/2023/08/ODS-4-EDUCACAO-DE-QUALIDADE-1024x1024-1.png"
+                    alt="Logo ODS 4 Educação de Qualidade" class="w-20 h-20 md:w-24 md:h-24 object-contain"
+                    onerror="this.onerror=null;this.src='https://placehold.co/96x96/ffffff/C5192D?text=ODS+4'">
+            </div>
+        </header>
+
+        <main>
+            <section id="contexto-geral" class="mb-12 bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                <h2 class="text-2xl font-bold text-[#003B5C] mb-4">A Tecnologia como Catalisadora para a Consecução do
+                    ODS 4 no Brasil</h2>
+                <div class="text-base leading-relaxed space-y-4">
+                    <p>O Objetivo de Desenvolvimento Sustentável 4, "Educação de Qualidade", assume um papel central. A
+                        sua missão é "assegurar a educação inclusiva e equitativa e de qualidade, e promover
+                        oportunidades de aprendizagem ao longo da vida para todos". No Brasil, a adaptação e o
+                        monitoramento destas metas são conduzidos por instituições como o Instituto de Pesquisa
+                        Econômica Aplicada (IPEA) e articulados em políticas públicas pelo Ministério da Educação, o que
+                        sublinha a urgência e a relevância nacional destes desafios.</p>
+                    <p>A tecnologia emerge como uma força transformadora com o potencial de acelerar o progresso em
+                        direção a estas metas. Os desafios educacionais historicamente enfrentados no país, como os
+                        propostos no documento original — focados na falta de acesso a equipamentos e internet, no
+                        desinteresse pela escola e no analfabetismo — abordam barreiras fundamentais de acesso e
+                        competências básicas. Contudo, para verdadeiramente concretizar a visão do ODS 4, é imperativo
+                        transcender estas questões iniciais e direcionar a inovação tecnológica para os desafios mais
+                        complexos e sistémicos do ecossistema educacional. As soluções da próxima geração devem focar
+                        não apenas em garantir que os alunos estejam na escola, mas na qualidade da educação que
+                        recebem, na relevância das suas aprendizagens para a vida e o trabalho, e na inclusividade dos
+                        ambientes em que aprendem. Aqui propomos cinco novos desafios tecnológicos, concebidos para
+                        explorar estas dimensões mais profundas da qualidade educacional, transformando projetos em
+                        protótipos de impacto social real.</p>
+                </div>
+            </section>
+
+            <section id="introducao-professor" class="mb-12 bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                <h2 class="text-2xl font-bold text-[#003B5C] mb-4">Uma Mensagem para os Futuros Desenvolvedores</h2>
+                <div class="text-base leading-relaxed space-y-4">
+                    <p>Olá, treinandos do <strong>Programa Bolsa Futuro Digital</strong>!</p>
+                    <p>
+                        Eu sou <strong>Augusto Queiroz</strong>, analista de sistemas, especialista em engenharia da
+                        computação e professor de vocês nas turmas de desenvolvimento Front-end e Back-end. Este projeto
+                        representa um momento crucial em sua jornada de formação. Em parceria com o
+                        <strong>MCTI</strong>, <strong>Softex PE</strong> e a <strong>Escola de Engenharia da
+                            Universidade Federal Fluminense (UFF)</strong> em Petrópolis, apresento a vocês os cinco
+                        desafios.
+                    </p>
+                    <p>Hoje, vocês não são apenas alunos; são inovadores com a missão de aplicar seus conhecimentos para
+                        resolver problemas reais. O documento a seguir apresenta cinco grandes desafios da educação
+                        brasileira, todos conectados ao <strong>Objetivo de Desenvolvimento Sustentável 4 (ODS 4):
+                            Educação de Qualidade</strong>, estabelecido pela ONU. Este objetivo global busca "assegurar
+                        a educação inclusiva e equitativa e de qualidade, e promover oportunidades de aprendizagem ao
+                        longo da vida para todos"</p>
+                    <p>
+                        As turmas foram divididas em equipes e cada uma de vocês receberá um dos desafios a seguir. Cada
+                        equipe, seja da turma de Back-end (Python/Django) ou Front-end (JavaScript/React), receberá a
+                        missão de mergulhar no problema, investigar suas causas e
+                        consequências, e então, idealizar, projetar e propor uma solução tecnológica inovadora. O "como"
+                        resolver é o cerne deste projeto e caberá inteiramente a vocês. Confio no potencial e na
+                        criatividade de cada equipe para desenvolver propostas de alto impacto.
+                    </p>
+                </div>
+            </section>
+
+            <section id="desafios" class="mb-12">
+                <h2 class="text-2xl font-bold text-center text-[#003B5C] mb-6">Explore o seu Desafio Designado</h2>
+
+                <nav class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8" id="navegacao-desafios">
+                </nav>
+
+                <div id="area-conteudo-desafio"
+                    class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-gray-200 min-h-[300px]">
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-12 py-8 border-t border-gray-200">
+            <h3 class="text-lg font-bold text-gray-700 mb-6">Realização e Parceria</h3>
+            <div class="flex flex-wrap justify-center items-center gap-x-8 md:gap-x-12 gap-y-6">
+                <img src="https://mlcti.mcti.gov.br/wp-content/themes/tainacan-interface/assets/images/logo-mcti.png"
+                    alt="Logo MCTI" class="h-14 object-contain" title="Ministério da Ciência, Tecnologia e Inovação"
+                    onerror="this.onerror=null;this.src='https://placehold.co/200x60/ccc/ffffff?text=MCTI';">
+                <img src="https://serratec.org/wp-content/uploads/2024/06/softex.png" alt="Logo Softex"
+                    class="h-12 object-contain" title="Softex"
+                    onerror="this.onerror=null;this.src='https://placehold.co/200x60/ccc/ffffff?text=Softex';">
+                <img src="https://softexpe.org.br/wp-content/uploads/2022/07/softex_pernambuco.png" alt="Logo Softex PE"
+                    class="h-14 object-contain" title="Softex Pernambuco"
+                    onerror="this.onerror=null;this.src='https://placehold.co/200x60/ccc/ffffff?text=Softex+PE';">
+                <img src="https://redeunisustentavel.com.br/wp-content/uploads/2024/07/UFF-1.png" alt="Logo UFF"
+                    class="h-14 object-contain" title="Universidade Federal Fluminense"
+                    onerror="this.onerror=null;this.src='https://placehold.co/150x60/ccc/ffffff?text=UFF';">
+            </div>
+            <p class="text-gray-500 mt-8 text-sm">
+                Uma iniciativa do <strong>Programa Bolsa Futuro Digital (MCTI/Softex PE)</strong> em parceria com a
+                <strong>UFF Petrópolis</strong>.
+            </p>
+        </footer>
+
+    </div>
+
+    <script>
+        const dadosDesafios = [
+            {
+                id: 1,
+                title: "Empoderando Educadores",
+                declaracao: `<strong>Problema indentificado: Isolamento, burnout e falta de desenvolvimento profissional relevante para professores.</strong><br>Os educadores do Brasil enfrentam uma crise de moral e apoio, resultando em altas taxas de esgotamento profissional e na iminência de uma escassez de professores. O desenvolvimento profissional existente é frequentemente genérico, de difícil acesso e desconectado das realidades diárias da sala de aula. Professores, especialmente os de áreas remotas ou de disciplinas com carência de profissionais como Física e Química, trabalham frequentemente de forma isolada, com oportunidades limitadas de colaboração ou mentoria. A causa fundamental do esgotamento docente não é apenas a falta de conhecimento técnico, mas um profundo sentimento de isolamento e desvalorização. Uma abordagem que prioriza a conexão entre pares e o apoio mútuo ataca a raiz emocional e social do problema, em vez de apenas oferecer mais conteúdo.`,
+                alinhamento: "Meta 4.c - Aumentar o contingente de professores qualificados."
+            },
+            {
+                id: 2,
+                title: "Acessibilidade Digital como um Direito",
+                declaracao: `<strong>Problema indentificado: Exclusão de alunos com deficiência de ambientes de aprendizagem digital inacessíveis.</strong><br>Apesar de mandatos legais como a Lei Brasileira de Inclusão, os espaços educacionais digitais no Brasil são profundamente inacessíveis. Com menos de 1% dos websites e aplicações a cumprir os padrões de acessibilidade, estudantes com deficiências visuais, auditivas, motoras ou cognitivas são efetivamente excluídos das oportunidades de aprendizagem online. Esta barreira digital contribui diretamente para disparidades educacionais gritantes, onde 63% das pessoas com deficiência não concluíram sequer o ensino fundamental. Escolas e professores carecem frequentemente do conhecimento ou das ferramentas para criar ou adquirir materiais acessíveis. O problema sistémico não é a falta de vontade, mas a falta de conhecimento e de ferramentas escaláveis. Uma solução tecnológica pode transformar a acessibilidade de um serviço de consultoria caro e complexo num processo automatizado e democrático.`,
+                alinhamento: "Meta 4.5 (equidade para grupos vulneráveis) e 4.a (ambientes de aprendizagem seguros e inclusivos)."
+            },
+            {
+                id: 3,
+                title: "A Ponte para o Primeiro Emprego",
+                declaracao: `<strong>Problema indentificado: Desalinhamento entre as competências dos jovens e as exigências do mercado de trabalho</strong><br>Existe um hiato significativo entre as competências adquiridas no sistema educacional brasileiro e as exigências do mercado de trabalho moderno. Os jovens estão presos num ciclo vicioso: carecem das "habilidades relevantes" e da experiência profissional necessárias para o emprego formal, o que leva a altas taxas de desemprego e trabalho informal. Este desajuste de competências não só prejudica as carreiras individuais, mas também compromete a produtividade económica e o potencial de inovação do país. O currículo tradicional é um formato de dados obsoleto; a falha reside na incapacidade de sinalizar e verificar competências práticas de forma eficaz.`,
+                alinhamento: "Meta 4.4 - Competências para o emprego, trabalho digno e empreendedorismo."
+            },
+            {
+                id: 4,
+                title: "Escalando a Qualidade na Educação Infantil",
+                declaracao: `<strong>Problema indentificado: Inconsistência na qualidade pedagógica e de gestão dos centros de educação infantil.</strong><br>A qualidade da educação na primeira infância (EPI) no Brasil é altamente inconsistente e frequentemente inadequada, especialmente em instituições públicas e regiões mais pobres. Os gestores de creches e pré-escolas muitas vezes não têm acesso a recursos pedagógicos atualizados, às melhores práticas operacionais e a ferramentas para o envolvimento dos pais. Esta "lacuna de qualidade" significa que, mesmo quando as crianças têm acesso a uma instituição, podem não estar a receber a estimulação cognitiva e emocional crucial para o seu desenvolvimento, perpetuando ciclos de desvantagem desde a mais tenra idade. A forma mais escalável de melhorar a qualidade para milhares de crianças é capacitar os gestores e educadores que lideram os centros, pois eles são o ponto de alavancagem do sistema.`,
+                alinhamento: "Meta 4.2 - Desenvolvimento, cuidados e educação pré-primária de qualidade na primeira infância."
+            },
+            {
+                id: 5,
+                title: "Integrando a Sustentabilidade",
+                declaracao: `<strong>Problema indentificado: Dificuldade em traduzir os conceitos da Educação para o Desenvolvimento Sustentável (EDS) em práticas de sala de aula.</strong><br>Apesar da sua reconhecida importância, a Educação para o Desenvolvimento Sustentável (EDS) permanece um tópico periférico em muitas escolas brasileiras. Os professores sentem-se despreparados para lecioná-la, carecendo tanto de formação quanto de materiais de ensino localizados e de alta qualidade. A natureza abstrata e global de conceitos como "alterações climáticas" ou "consumo sustentável" torna-os difíceis de traduzir em atividades de sala de aula envolventes e práticas, levando a uma implementação superficial que falha em fomentar o pensamento crítico e as competências de cidadania delineadas na meta 4.7 do ODS. A chave para uma EDS eficaz é torná-la local, tangível e orientada para a ação.`,
+                alinhamento: "Meta 4.7 - Educação para o desenvolvimento sustentável e cidadania global."
+            }
+        ];
+
+        const navegacaoDesafios = document.getElementById('navegacao-desafios');
+        const areaConteudo = document.getElementById('area-conteudo-desafio');
+
+        function exibirDesafio(idDesafio) {
+            const desafio = dadosDesafios.find(d => d.id === idDesafio);
+            if (!desafio) return;
+
+            areaConteudo.innerHTML = `
+                <div class="cartao-conteudo active animate-fade-in">
+                    <h3 class="text-2xl font-bold text-[#0077B6] mb-4">${desafio.title}</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-lg text-[#003B5C]">Declaração do Problema</h4>
+                            <p class="text-gray-700 leading-relaxed">${desafio.declaracao}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-[#003B5C]">Alinhamento com o ODS 4</h4>
+                            <p class="text-gray-700 leading-relaxed">${desafio.alinhamento}</p>
+                        </div>
+                         <div>
+                            <h4 class="font-bold text-lg text-[#003B5C]">Stacks Tecnológicos para o Desenvolvimento</h4>
+                            <p class="text-gray-700 leading-relaxed">
+                                <strong>Equipes de Back-end:</strong> Deverão utilizar Python com o framework Django. <br>
+                                <strong>Equipes de Front-end:</strong> Deverão utilizar JavaScript com a biblioteca React.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.querySelectorAll('.aba-desafio').forEach(aba => {
+                aba.classList.remove('active');
+                if (parseInt(aba.dataset.id) === idDesafio) {
+                    aba.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            dadosDesafios.forEach((desafio) => {
+                const aba = document.createElement('button');
+                aba.className = 'aba-desafio px-4 py-2 md:px-6 md:py-3 text-sm md:text-base font-medium rounded-full bg-white shadow-sm border border-gray-200 hover:bg-gray-100';
+                aba.textContent = `Desafio ${desafio.id}`;
+                aba.dataset.id = desafio.id;
+                aba.addEventListener('click', () => exibirDesafio(desafio.id));
+                navegacaoDesafios.appendChild(aba);
+            });
+
+            if (dadosDesafios.length > 0) {
+                exibirDesafio(1);
+            }
+
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        animation: {
+                            'fade-in': 'fadeIn 0.5s ease-in-out',
+                        },
+                        keyframes: {
+                            fadeIn: {
+                                '0%': { opacity: 0, transform: 'translateY(10px)' },
+                                '100%': { opacity: 1, transform: 'translateY(0)' },
+                            },
+                        },
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
