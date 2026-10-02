@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-   
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -287,6 +287,27 @@
             });
         }
 
+        function toggleProjeto(index) {
+            const detalhe = document.getElementById(`detalhe-${index}`);
+            const seta = document.getElementById(`seta-${index}`);
+            const estaAberto = detalhe.classList.contains('aberto');
+
+            // Fecha todos os outros
+            document.querySelectorAll('.projeto-detalhe').forEach((el, i) => {
+                el.classList.remove('aberto');
+                el.style.paddingBottom = '0';
+                const setaEl = document.getElementById(`seta-${i}`);
+                if (setaEl) setaEl.classList.remove('rotacionada');
+            });
+
+            // Abre o clicado (se não estava aberto)
+            if (!estaAberto) {
+                detalhe.classList.add('aberto');
+                detalhe.style.paddingBottom = '0.5rem';
+                seta.classList.add('rotacionada');
+            }
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             dadosDesafios.forEach((desafio) => {
                 const aba = document.createElement('button');
@@ -353,26 +374,6 @@
                 `;
                 listaProjetosAlunos.appendChild(card);
             });
-
-            function toggleProjeto(index) {
-                const detalhe = document.getElementById(`detalhe-${index}`);
-                const seta = document.getElementById(`seta-${index}`);
-                const estaAberto = detalhe.classList.contains('aberto');
-
-                // Fecha todos os outros
-                document.querySelectorAll('.projeto-detalhe').forEach((el, i) => {
-                    el.classList.remove('aberto');
-                    el.style.paddingBottom = '0';
-                    document.getElementById(`seta-${i}`).classList.remove('rotacionada');
-                });
-
-                // Abre o clicado (se não estava aberto)
-                if (!estaAberto) {
-                    detalhe.classList.add('aberto');
-                    detalhe.style.paddingBottom = '0.5rem';
-                    seta.classList.add('rotacionada');
-                }
-            }
 
             tailwind.config = {
                 theme: {
